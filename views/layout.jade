@@ -1,0 +1,28 @@
+!!!
+html
+	head
+		title brnrd
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css', type='text/css')
+		link(rel='stylesheet', href='/css/style.css', type='text/css')
+		link(href='http://fonts.googleapis.com/css?family=Quicksand', rel='stylesheet', type='text/css')
+	body
+		.container
+			.row
+				.col-sm-8
+					block content
+				.col-sm-4
+					.well.sidebar-nav
+						ul.nav.nav-pills.nav-stacked
+							li Categories
+							- each cat in getCategories()
+								li
+									a(href=categoryURL(cat)) #{cat}
+							li Tags
+							- each tag in getTags()
+								li
+									a(href=tagURL(tag)) #{tag}
+
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+		script(src='//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js')

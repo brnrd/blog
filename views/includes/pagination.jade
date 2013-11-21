@@ -1,0 +1,25 @@
+ul.pagination
+  - var i = 1;
+  - var pageCount = getPageCount();
+  - 
+    if page == 1
+      li.disabled
+        span &laquo;
+    else  
+      li
+        a(href=pageURL(page-1)) &laquo;
+  - while ( i <= pageCount )
+    if page == i
+      li.active
+        a(href=pageURL(i)) #{i}
+    else
+      li
+        a(href=pageURL(i)) #{i}
+    - i++;
+  - 
+    if pageCount == 1
+      li.disabled
+        span &raquo;
+    else  
+      li
+        a(href=pageURL(page+1)) &raquo;
